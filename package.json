@@ -1,5 +1,5 @@
 {
-  "name": "api-rest-ssl-nodejs-express",
+  "name": "api-rest-ssl-nodejs-express-postgresql",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",

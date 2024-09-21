@@ -29,7 +29,7 @@ module.exports = class ProdutoService{
         try{
             const produto = await ProdutoRepository.findByPk(id)
 
-            // remover dados extras por não serem usados
+            // remover dados extras de produto e colocando apenas os dados necessarios em objProduto
             const objProduto = produto ? produto.get({ plain: true }) : null;
 
             return objProduto

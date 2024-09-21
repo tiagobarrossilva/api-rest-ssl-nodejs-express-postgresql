@@ -11,7 +11,7 @@ const Produto = db.define('Produto',{
     nome:{
         type: DataTypes.STRING,
         require: true,
-        allowNull: false, //não permite valor nulo
+        allowNull: false,
     },
     preco:{
         type: DataTypes.FLOAT,
