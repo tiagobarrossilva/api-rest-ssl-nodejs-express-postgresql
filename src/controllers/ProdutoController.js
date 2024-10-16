@@ -1,4 +1,5 @@
 const ProdutoService = require('../services/ProdutoService')
+// const ProdutoDto = require('../dtos/ProdutoDto')
 
 module.exports = class ProdutoController{
     
@@ -47,11 +48,12 @@ module.exports = class ProdutoController{
         return res.status(500).json({message: 'erro'})
     }
 
-    static async excluirProduto(req,res){
-        const produtoExcluido = await ProdutoService.excluirProduto(req.params.id)
+    static async excluirProduto(req,res){                
+
+        const produtoExcluido = await ProdutoService.excluirProduto(parseInt(req.params.id))
         
         if(produtoExcluido){
-            return res.status(204)
+            return res.status(204).json({})
         }
         return res.status(500).json({message: 'erro'})
     }

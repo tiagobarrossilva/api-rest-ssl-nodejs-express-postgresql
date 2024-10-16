@@ -1,12 +1,10 @@
 const ProdutoRepository = require('../repositories/ProdutoRepository')
-const ProdutoDto = require('../dtos/ProdutoDto')
 
 module.exports = class ProdutoService{
 
-    static async cadastrarNovoProduto(produto){
+    static async cadastrarNovoProduto(produto){        
         try{
-            const produtoDto = new ProdutoDto(produto)
-            const produtoArmazenado = await ProdutoRepository.create(produtoDto)
+            const produtoArmazenado = await ProdutoRepository.create(produto)
             if(produtoArmazenado){
                 return true
             }
@@ -40,8 +38,7 @@ module.exports = class ProdutoService{
 
     static async atualizarProduto(id,produto){
         try{
-            const produtoDto = new ProdutoDto(produto)
-            await ProdutoRepository.update(produtoDto,{where:{id:id}})
+            await ProdutoRepository.update(produto,{where:{id:id}})
             return true
         } catch(erro){
             return false
@@ -49,7 +46,7 @@ module.exports = class ProdutoService{
     }
 
     static async excluirProduto(id){
-        try{
+        try{            
             await ProdutoRepository.destroy({where:{id:id}})
             return true
         } catch(erro){
